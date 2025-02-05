@@ -1,0 +1,1 @@
+Your chat has been refreshed. You can start any operation again.

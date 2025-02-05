@@ -1,0 +1,1 @@
+You already have a password for this user, use the /reset_password command to reset your password.

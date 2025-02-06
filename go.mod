@@ -1,6 +1,6 @@
 module github.com/ShowBaba/kagewallet
 
-go 1.20.5
+go 1.21.4
 
 require (
 	github.com/badoux/checkmail v1.2.4

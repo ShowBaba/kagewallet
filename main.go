@@ -109,7 +109,7 @@ func main() {
 	routes.RegisterWebhookRoutes(router, db)
 
 	go func() {
-		port := ":8080"
+		port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 		if env == "dev" {
 			port = ":8000"
 		}

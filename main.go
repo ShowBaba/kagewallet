@@ -5,6 +5,7 @@ import (
 	"net/http"
 	_ "net/http/pprof"
 	"os"
+	"path/filepath"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
@@ -30,7 +31,6 @@ func init() {
 	if err != nil {
 		log.Error("error loading .env file: %s", zap.Error(err))
 	}
-
 	dbConfig := database.Config{
 		Host:     os.Getenv("DB_HOST"),
 		Port:     os.Getenv("DB_PORT"),
@@ -39,9 +39,19 @@ func init() {
 		DBName:   os.Getenv("DB_NAME"),
 	}
 
+	if env != "dev" {
+		basePath, _ := filepath.Abs("assets")
+		dbConfig.SSLRootCert = fmt.Sprintf("%s/%s", basePath, "/ca.pem")
+		dbConfig.Host = os.Getenv("DB_HOST_LIVE")
+		dbConfig.DBName = os.Getenv("DB_NAME_LIVE")
+		dbConfig.Port = os.Getenv("DB_PORT_LIVE")
+		dbConfig.Password = os.Getenv("DB_PASSWORD_LIVE")
+		dbConfig.User = os.Getenv("DB_USER_LIVE")
+	}
+
 	log.Info("postgres DB", zap.Any("config", dbConfig))
 
-	db, err = database.ConnectPg(&dbConfig)
+	db, err = database.ConnectPg(&dbConfig, env)
 	if err != nil {
 		log.Fatal("error connecting to postgres", zap.Error(err))
 	}

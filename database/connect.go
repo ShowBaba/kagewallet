@@ -3,6 +3,7 @@ package database
 import (
 	"context"
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 
@@ -17,20 +18,20 @@ import (
 type Config struct {
 	Host          string
 	Port          string
-	Password      string
 	User          string
+	Password      string
 	DBName        string
 	DisableLogger bool
+	SSLRootCert   string
 }
 
-func ConnectPg(config *Config) (*gorm.DB, error) {
+func ConnectPg(config *Config, env string) (*gorm.DB, error) {
 	var (
 		err     error
 		port, _ = strconv.ParseUint(config.Port, 10, 32)
 		dsn     = fmt.Sprintf(
-			"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-			config.Host, port, config.User, config.Password, config.DBName,
-		)
+			"host=%s port=%d user=%s password=%s dbname=%s sslmode=verify-full sslrootcert=%s",
+			config.Host, port, config.User, config.Password, config.DBName, config.SSLRootCert)
 
 		db      *gorm.DB
 		options = gorm.Config{
@@ -43,6 +44,13 @@ func ConnectPg(config *Config) (*gorm.DB, error) {
 		}
 	)
 
+	if env == "dev" {
+		dsn = fmt.Sprintf(
+			"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+			config.Host, port, config.User, config.Password, config.DBName,
+		)
+	}
+
 	if config.DisableLogger {
 		options.Logger = logger.Default.LogMode(logger.Silent)
 	}
@@ -51,6 +59,19 @@ func ConnectPg(config *Config) (*gorm.DB, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect database, err: %s", err)
 	}
+
+	sqlDB, err := db.DB()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get underlying database connection, err: %s", err)
+	}
+
+	err = sqlDB.Ping()
+	if err != nil {
+		return nil, fmt.Errorf("failed to ping database, err: %s", err)
+	}
+
+	log.Printf("successfully connected to database")
+
 	return db, nil
 }
 

@@ -3,8 +3,8 @@ package repositories
 import (
 	"fmt"
 
+	"github.com/ShowBaba/kagewallet/database"
 	"gorm.io/gorm"
-	"kagewallet/database"
 )
 
 type TransactionRepository struct {

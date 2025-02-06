@@ -1,4 +1,4 @@
-module kagewallet
+module github.com/ShowBaba/kagewallet
 
 go 1.21.4
 

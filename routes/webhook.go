@@ -1,11 +1,11 @@
 package routes
 
 import (
+	"github.com/ShowBaba/kagewallet/handlers"
+	"github.com/ShowBaba/kagewallet/repositories"
+	"github.com/ShowBaba/kagewallet/services"
 	"github.com/gorilla/mux"
 	"gorm.io/gorm"
-	"kagewallet/handlers"
-	"kagewallet/repositories"
-	"kagewallet/services"
 )
 
 func RegisterWebhookRoutes(router *mux.Router, db *gorm.DB) {

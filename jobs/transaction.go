@@ -8,8 +8,8 @@ import (
 	"os"
 	"sync"
 
+	log "github.com/ShowBaba/kagewallet/logging"
 	"go.uber.org/zap"
-	log "kagewallet/logging"
 )
 
 func (j *Job) fetchBlockradarTransactions() error {

@@ -1,9 +1,9 @@
 package services
 
 import (
+	"github.com/ShowBaba/kagewallet/database"
+	"github.com/ShowBaba/kagewallet/repositories"
 	"github.com/google/uuid"
-	"kagewallet/database"
-	"kagewallet/repositories"
 )
 
 type WalletService struct {

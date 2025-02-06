@@ -10,10 +10,10 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/ShowBaba/kagewallet/common"
+	log "github.com/ShowBaba/kagewallet/logging"
+	"github.com/ShowBaba/kagewallet/services"
 	"go.uber.org/zap"
-	"kagewallet/common"
-	log "kagewallet/logging"
-	"kagewallet/services"
 )
 
 type WebhookHandler struct {

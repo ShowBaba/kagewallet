@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/ShowBaba/kagewallet/bot"
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/database"
+	log "github.com/ShowBaba/kagewallet/logging"
 	"go.uber.org/zap"
-	"kagewallet/bot"
-	"kagewallet/common"
-	"kagewallet/database"
-	log "kagewallet/logging"
 )
 
 func ListenForNotifications() {

@@ -1,8 +1,8 @@
 package repositories
 
 import (
+	"github.com/ShowBaba/kagewallet/database"
 	"gorm.io/gorm"
-	"kagewallet/database"
 )
 
 type TelegramCommandLogRepository struct {

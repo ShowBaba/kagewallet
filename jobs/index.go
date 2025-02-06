@@ -1,8 +1,8 @@
 package jobs
 
 import (
-	log "kagewallet/logging"
-	"kagewallet/repositories"
+	log "github.com/ShowBaba/kagewallet/logging"
+	"github.com/ShowBaba/kagewallet/repositories"
 )
 
 type Job struct {

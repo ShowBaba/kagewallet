@@ -4,10 +4,10 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/ShowBaba/kagewallet/database"
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
 	"gorm.io/gorm"
-	"kagewallet/database"
 )
 
 type WalletRepository struct {

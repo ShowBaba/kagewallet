@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"kagewallet/common"
-	"kagewallet/helpers"
-	"kagewallet/repositories"
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/helpers"
+	"github.com/ShowBaba/kagewallet/repositories"
 )
 
 type AuthService struct {

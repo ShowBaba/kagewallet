@@ -13,18 +13,18 @@ import (
 	"sync"
 	"time"
 
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/database"
+	"github.com/ShowBaba/kagewallet/helpers"
+	log "github.com/ShowBaba/kagewallet/logging"
+	"github.com/ShowBaba/kagewallet/repositories"
+	"github.com/ShowBaba/kagewallet/services"
+	"github.com/ShowBaba/kagewallet/tmpl"
 	"github.com/dustin/go-humanize"
 	tgApi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"github.com/google/uuid"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
-	"kagewallet/common"
-	"kagewallet/database"
-	"kagewallet/helpers"
-	log "kagewallet/logging"
-	"kagewallet/repositories"
-	"kagewallet/services"
-	"kagewallet/tmpl"
 )
 
 const (

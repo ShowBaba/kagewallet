@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/services"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"kagewallet/common"
-	"kagewallet/services"
 )
 
 type AdminHandler struct {

@@ -3,9 +3,9 @@ package repositories
 import (
 	"errors"
 
+	"github.com/ShowBaba/kagewallet/database"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
-	"kagewallet/database"
 )
 
 type AddressRepository struct {

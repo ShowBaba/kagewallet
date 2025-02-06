@@ -1,8 +1,8 @@
 package services
 
 import (
-	"kagewallet/database"
-	"kagewallet/repositories"
+	"github.com/ShowBaba/kagewallet/database"
+	"github.com/ShowBaba/kagewallet/repositories"
 )
 
 type RateService struct {

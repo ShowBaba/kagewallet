@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
+	"github.com/ShowBaba/kagewallet/database"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
-	"kagewallet/database"
 )
 
 type TelegramRepository struct {

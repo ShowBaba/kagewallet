@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/database"
+	"github.com/ShowBaba/kagewallet/helpers"
+	"github.com/ShowBaba/kagewallet/repositories"
 	"github.com/google/uuid"
 	"github.com/shopspring/decimal"
-	"kagewallet/common"
-	"kagewallet/database"
-	"kagewallet/helpers"
-	"kagewallet/repositories"
 )
 
 type WithdrawalService struct {

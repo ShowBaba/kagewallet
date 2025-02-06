@@ -7,17 +7,17 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/ShowBaba/kagewallet/bot"
+	"github.com/ShowBaba/kagewallet/database"
+	"github.com/ShowBaba/kagewallet/jobs"
+	log "github.com/ShowBaba/kagewallet/logging"
+	"github.com/ShowBaba/kagewallet/repositories"
+	"github.com/ShowBaba/kagewallet/routes"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gorm.io/gorm"
-	"kagewallet/bot"
-	"kagewallet/database"
-	"kagewallet/jobs"
-	log "kagewallet/logging"
-	"kagewallet/repositories"
-	"kagewallet/routes"
 )
 
 var (

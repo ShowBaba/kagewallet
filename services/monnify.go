@@ -13,13 +13,13 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ShowBaba/kagewallet/helpers"
+	log "github.com/ShowBaba/kagewallet/logging"
 	"github.com/shopspring/decimal"
 	"go.uber.org/zap"
-	"kagewallet/helpers"
-	log "kagewallet/logging"
 
-	"kagewallet/common"
-	"kagewallet/database"
+	"github.com/ShowBaba/kagewallet/common"
+	"github.com/ShowBaba/kagewallet/database"
 )
 
 type MonnifyService struct {

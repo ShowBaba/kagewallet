@@ -105,14 +105,9 @@ func NewTelegramBot(TOKEN string, db *gorm.DB) (*TelegramBot, error) {
 		{Command: CommandSetPassword, Description: "Set a new password for your account"},
 		{Command: CommandResetPassword, Description: "Reset your password if forgotten"},
 		{Command: CommandRefresh, Description: "Refresh your session and update data"},
-		{Command: CommandRate, Description: "Get the current exchange rate for a specific currency"},
-		{Command: CommandRates, Description: "See the latest exchange rates for all supported currencies"},
-		{Command: CommandGenerateAddress, Description: "Generate a new deposit address for receiving funds"},
-		{Command: CommandBalances, Description: "View your wallet balances for all assets"},
+		{Command: CommandRate, Description: "Get the current exchange rate"},
 		{Command: CommandBalance, Description: "Check your balance for a specific asset"},
-		{Command: CommandTransactions, Description: "See a list of your recent transactions"},
-		{Command: CommandTransaction, Description: "View details of a specific transaction"},
-		{Command: CommandTransactionHistory, Description: "View your complete transaction history"},
+		{Command: CommandTransactions, Description: "View your complete transaction history"},
 		{Command: CommandWithdraw, Description: "Withdraw funds to your bank account"},
 	}
 

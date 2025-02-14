@@ -1,51 +1,39 @@
-<b>Welcome to KageWallet, your trusted platform for secure and anonymous cryptocurrency transactions.</b>
+<b>👋 Welcome to KageWallet – Your Trusted Crypto Exchange Bot!</b>
+
+---
+<b>📌 New Users – Get Started Easily</b>
+
+<b>1️⃣ Set Up Your Password (Required)</b>
+🔹 Use /set_password to create a secure password.
+🔹 This password is required for withdrawals, profile updates, and more.
+
+<b>2️⃣ Sell Cryptocurrency & Receive Fiat</b>
+🔹 Use /sell to instantly convert your crypto to Naira.
+
+<b>3️⃣ Check Exchange Rates</b>
+🔹 Use /rate to view the latest exchange rates for USDT, TRON, and SOL.
+
+<b>4️⃣ Check Your Balance</b>
+🔹 Use /balance to see your crypto holdings in real-time.
+
+<b>5️⃣ Withdraw Funds</b>
+🔹 Use /withdraw to transfer money directly to your bank account.
 
 ---
 
-<b>📌 New Users</b>
-<b>1. Set Up Your Password (Required)</b>
-   - Use the `/set_password` command to create a strong password.
-   - This password will be required for sensitive actions such as withdrawals, profile updates, and more.
+<b>🔄 Returning Users – Quick Access</b>
 
-<b>2. Generate Wallet Addresses</b>
-   - Use the `/generate` command to create wallet addresses for cryptocurrencies like USDT, TRON, and SOL.
-   - Each generated address will be used to receive deposits.
-
-<b>3. Check Exchange Rates</b>
-   - Use the `/rates` command to view the latest exchange rates for supported cryptocurrencies in Naira.
-
-<b>4. Explore Your Profile</b>
-   - Use `/profile` to view or update your profile, including withdrawal bank details and portfolio information.
-
-<b>5. Get Started</b>
-   - Deposit funds into your generated wallet addresses and begin trading or withdrawing to your local bank account.
+✅ <b>View Transactions:</b> Use /transactions to track your trade & withdrawal history.
+✅ <b>Reset Password:</b> Forgot your password? Use /reset_password to recover access.
 
 ---
 
-<b>🔄 Returning Users</b>
-<b>1. View Balances</b>
-   - Use the `/balance` command to see your cryptocurrency balances and their Naira equivalents.
+<b>⚙️ Extra Features for a Secure Experience</b>
 
-<b>2. Request Withdrawals</b>
-   - Use the `/withdraw` command to transfer funds from your crypto wallet to your bank account.
-   - Specify the wallet or withdraw from your entire portfolio.
-
-<b>3. Check Exchange Rates</b>
-   - Stay updated with the latest rates using `/rates`.
-
-<b>4. Access Transaction History</b>
-   - Use `/history` to view a detailed log of your past transactions, deposits, and withdrawals.
-
-<b>5. Update Profile</b>
-   - Use `/profile` to update any personal information, including bank details.
+🔹 Need Help? Use /help for a full list of commands.
+🔹 Stay Secure: Your password is required for sensitive actions.
+🔹 Customer Support: Reach out anytime for assistance.
 
 ---
 
-<b>⚙️ Additional Features</b>
-- Security: All sensitive commands require your password. Reset your password anytime using `/resetpassword`.
-- Help: For assistance, use the `/help` command to see a list of available commands and descriptions.
-- Contact Support: Reach out to our team anytime using the `/support` command.
-
----
-
-We’re glad to have you on board. Start trading securely and anonymously today! 🚀
+🚀 Start trading crypto securely & effortlessly today with KageWallet!

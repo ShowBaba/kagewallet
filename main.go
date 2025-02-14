@@ -53,7 +53,7 @@ func init() {
 
 	db, err = database.ConnectPg(&dbConfig, env)
 	if err != nil {
-		log.Fatal("error connecting to postgres", zap.Error(err))
+		log.Fatal(fmt.Sprintf("error connecting to postgres %s", dbConfig.Host), zap.Error(err))
 	}
 
 	err = database.InitializeRedis(os.Getenv("REDIS_ADDRESS"), os.Getenv("REDIS_PASSWORD"), 0)

@@ -1,3 +1,5 @@
+github.com/ShowBaba/blockradar-go v0.0.0-20250319105034-2a20bc4ca237 h1:Mi2nrB/gKucAnKpj8i0/UtZOpt50TdQxGC78q6sficM=
+github.com/ShowBaba/blockradar-go v0.0.0-20250319105034-2a20bc4ca237/go.mod h1:OgUAhtJ7AE4/tvxg0uDqGi35ZSwe2/tw0pjNSTN24rM=
 github.com/badoux/checkmail v1.2.4 h1:4zMjdYDjE2Q7xF06VNfyN8P9JGU7epLjNb+Yu5OThVI=
 github.com/badoux/checkmail v1.2.4/go.mod h1:XroCOBU5zzZJcLvgwU15I+2xXyCdTWXyR9MGfRhBYy0=
 github.com/bsm/ginkgo/v2 v2.12.0 h1:Ny8MWAHyOepLGlLKYmXG4IEkioBysk6GpaRTLC8zwWs=

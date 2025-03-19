@@ -71,28 +71,31 @@ func main() {
 	if log.Logger == nil {
 		log.InitializeLogger(zapcore.InfoLevel)
 	}
-	// f, err := os.Create("cpu.prof")
-	// if err != nil {
-	// 	log.Error("could not create CPU profile: ", zap.Error(err))
-	// }
-	// err = pprof.StartCPUProfile(f)
-	// if err != nil {
-	// 	log.Error("error starting cpu profile", zap.Error(err))
-	// }
-	// defer pprof.StopCPUProfile()
-	// go func() {
-	// 	time.Sleep(30 * time.Second)
-	// 	memProfile, err := os.Create("mem.prof")
-	// 	if err != nil {
-	// 		log.Error("could not create memory profile: ", zap.Error(err))
-	// 		return
-	// 	}
-	// 	defer memProfile.Close()
-	//
-	// 	if err := pprof.WriteHeapProfile(memProfile); err != nil {
-	// 		log.Error("could not write memory profile: ", zap.Error(err))
-	// 	}
-	// }()
+
+	/*
+		f, err := os.Create("cpu.prof")
+		if err != nil {
+			log.Error("could not create CPU profile: ", zap.Error(err))
+		}
+		err = pprof.StartCPUProfile(f)
+		if err != nil {
+			log.Error("error starting cpu profile", zap.Error(err))
+		}
+		defer pprof.StopCPUProfile()
+		go func() {
+			time.Sleep(30 * time.Second)
+			memProfile, err := os.Create("mem.prof")
+			if err != nil {
+				log.Error("could not create memory profile: ", zap.Error(err))
+				return
+			}
+			defer memProfile.Close()
+
+			if err := pprof.WriteHeapProfile(memProfile); err != nil {
+				log.Error("could not write memory profile: ", zap.Error(err))
+			}
+		}()
+	*/
 
 	router := mux.NewRouter()
 	router.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {

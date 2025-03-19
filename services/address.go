@@ -1,14 +1,13 @@
 package services
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
+	"log"
 	"os"
 	"strings"
 
+	"github.com/ShowBaba/blockradar-go"
 	"github.com/ShowBaba/kagewallet/common"
 	"github.com/ShowBaba/kagewallet/database"
 	"github.com/ShowBaba/kagewallet/helpers"
@@ -118,7 +117,6 @@ func createBlockradarWalletAddress(walletName, userId, assetId string) (*CreateB
 		walletID = os.Getenv("BLOCKRADER_BNB_WALLET_ID")
 		apiKey = os.Getenv("BLOCKRADAR_BNB_API_KEY")
 	}
-	url := fmt.Sprintf("https://api.blockradar.co/v1/wallets/%s/addresses", walletID)
 
 	userData := map[string]string{
 		"user_id":  userId,
@@ -130,54 +128,35 @@ func createBlockradarWalletAddress(walletName, userId, assetId string) (*CreateB
 		return nil, fmt.Errorf("failed to marshal user data: %v", err)
 	}
 
-	payload := struct {
-		Name                  string          `json:"name,omitempty"`
-		Metadata              json.RawMessage `json:"metadata,omitempty"`
-		ShowPrivateKey        bool            `json:"showPrivateKey,omitempty"`
-		DisableAutoSweep      bool            `json:"disableAutoSweep,omitempty"`
-		EnableGaslessWithdraw bool            `json:"enableGaslessWithdraw,omitempty"`
-	}{
+	config := blockradar.Config{
+		APIKey: apiKey,
+	}
+	client := blockradar.NewClient(config)
+
+	generateAddressReq := &blockradar.GenerateAddressesRequest{
+		WalletID:              walletID,
 		Name:                  fmt.Sprintf(`Kage:%s wallet`, walletName),
 		DisableAutoSweep:      false,
 		EnableGaslessWithdraw: true,
 		ShowPrivateKey:        false,
 		Metadata:              metadata,
 	}
-
-	payloadBytes, err := json.Marshal(payload)
-
+	generateAddressRes, err := client.Address.GenerateAddress(generateAddressReq)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal request payload: %v", err)
+		log.Fatalf("Failed to generate address: %v", err)
 	}
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(payloadBytes))
+
+	response := CreateBlockradarAddressResponse{}
+
+	dataBytes, err := json.Marshal(generateAddressRes.Data)
 	if err != nil {
-		return nil, fmt.Errorf("failed to create HTTP request: %v", err)
+		log.Fatalf("Failed to marshal response data: %v", err)
 	}
 
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("x-api-key", apiKey)
-
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("failed to send HTTP request: %v", err)
-	}
-	defer resp.Body.Close()
-
-	respBody, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read response body: %v", err)
+	if err := json.Unmarshal(dataBytes, &response.Data); err != nil {
+		log.Fatalf("Failed to unmarshal response data: %v", err)
 	}
 
-	fmt.Println(string(respBody))
-	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusCreated {
-		return nil, fmt.Errorf("API request failed with status %d: %s", resp.StatusCode, string(respBody))
-	}
-
-	var response CreateBlockradarAddressResponse
-	if err := json.Unmarshal(respBody, &response); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal response: %v", err)
-	}
 	return &response, nil
 }
 

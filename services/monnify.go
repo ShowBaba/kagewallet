@@ -217,9 +217,9 @@ func (m *MonnifyService) InitiateTransfer(amount decimal.Decimal, bankCode, bank
 		return "", nil, err
 	}
 
-	fmt.Println(string(body))
-
-	fmt.Println("body; ", resp.Body)
+	// fmt.Println(string(body))
+	//
+	// fmt.Println("body; ", resp.Body)
 	if resp.StatusCode != http.StatusOK {
 		return "", nil, fmt.Errorf("failed to validate bank account: %s", resp.Status)
 	}
@@ -346,7 +346,6 @@ type InitiateTransferResponse struct {
 
 func initialize() {
 	HTTPClient = &http.Client{}
-
 	err := loadBanks()
 	if err != nil {
 		log.Error("error loading bank codes", zap.Error(err))

@@ -26,7 +26,7 @@ KageWallet is a robust Telegram bot designed for seamless cryptocurrency trading
 ## Technology Stack
 
 - **Golang** – Backend logic and Telegram bot implementation.
-- **[Blockradar.co](https://www.blockradar.co/)** – Handles cryptocurrency transactions and exchange rates.
+- **[Blockradar.co](https://www.blockradar.co/)** – Handles cryptocurrency transactions.
 - **[Monnify.com](https://www.monnify.com/)** – Processes fiat withdrawals and bank payouts.
 - **PostgreSQL** – Stores user balances, transactions, and authentication data.
 - **Redis** – Caches user sessions for improved performance.
